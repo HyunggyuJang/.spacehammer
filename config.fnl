@@ -40,11 +40,9 @@
 ;;
 ;; [x] a - apps
 ;; [x] |-- e - emacs
-;; [x] |-- g - chrome
 ;; [x] |-- f - firefox
-;; [x] |-- i - iTerm
+;; [x] |-- t - kitty
 ;; [x] |-- s - Slack
-;; [x] |-- b - Brave
 ;;
 ;; [x] j - jump
 ;;
@@ -61,9 +59,6 @@
 ;; [x] |-- z - note
 ;; [x] |-- f - fullscreen
 ;; [x] |-- v - split
-;;
-;; [x] alt-n - next-app
-;; [x] alt-p - prev-app
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -113,16 +108,20 @@
 (local window-jumps
        [{:mods [:cmd :ctrl]
          :key :h
-         :action "windows:jump-window-left"}
+         :action "windows:jump-window-left"
+         :repeatable true}
         {:mods [:cmd :ctrl]
          :key :j
-         :action "windows:jump-window-above"}
+         :action "windows:jump-window-above"
+         :repeatable true}
         {:mods [:cmd :ctrl]
          :key :k
-         :action "windows:jump-window-below"}
+         :action "windows:jump-window-below"
+         :repeatable true}
         {:mods [:cmd :ctrl]
          :key :l
-         :action "windows:jump-window-right"}])
+         :action "windows:jump-window-right"
+         :repeatable true}])
 
 (local window-halves
        [{:key "hjkl"
@@ -238,7 +237,7 @@
         {:key :f
          :title "Firefox"
          :action (activator "Firefox")}
-        {:key :i
+        {:key :t
          :title "kitty"
          :action (activator "kitty")}
         {:key :s
@@ -346,20 +345,22 @@
           :title "Edit with Emacs"
           :action "emacs:edit-with-emacs"}]))
 
-(local brave-config
-       {:key "Brave Browser"
-        :keys browser-keys
-        :items browser-items})
+;; (local brave-config
+;;        {:key "Brave Browser"
+;;         :keys browser-keys
+;;         :items browser-items})
 
-(local chrome-config
-       {:key "Google Chrome"
-        :keys browser-keys
-        :items browser-items})
+;; (local chrome-config
+;;        {:key "Google Chrome"
+;;         :keys browser-keys
+;;         :items browser-items})
 
 (local firefox-config
        {:key "Firefox"
         :keys browser-keys
-        :items browser-items})
+        :items browser-items
+        :activate (fn [] (vim.disable))
+        :deactivate (fn [] (vim.enable))})
 
 (local emacs-config
        {:key "Emacs"
@@ -369,15 +370,15 @@
         :items []
         :keys []})
 
-(local grammarly-config
-       {:key "Grammarly"
-        :items (concat
-                menu-items
-                [{:mods [:ctrl]
-                  :key :c
-                  :title "Return to Emacs"
-                  :action "grammarly:back-to-emacs"}])
-        :keys ""})
+;; (local grammarly-config
+;;        {:key "Grammarly"
+;;         :items (concat
+;;                 menu-items
+;;                 [{:mods [:ctrl]
+;;                   :key :c
+;;                   :title "Return to Emacs"
+;;                   :action "grammarly:back-to-emacs"}])
+;;         :keys ""})
 
 (local hammerspoon-config
        {:key "Hammerspoon"
@@ -440,11 +441,8 @@
                 :repeat true}]})
 
 (local apps
-       [brave-config
-        chrome-config
-        firefox-config
+       [firefox-config
         emacs-config
-        grammarly-config
         hammerspoon-config
         slack-config])
 
@@ -455,7 +453,7 @@
         :enter (fn [] (windows.hide-display-numbers))
         :exit  (fn [] (windows.hide-display-numbers))
         :apps  apps
-        :hyper {:key :F18}
+        :hyper {:key :F20}
         :modules {:windows {:center-ratio "80:50"}}})
 
 
