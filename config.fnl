@@ -336,6 +336,14 @@
         {:mods [:alt]
          :key :j
          :action "chrome:prev-tab"
+         :repeat true}
+        {:mods [:ctrl]
+         :key :n
+         :action "slack:down"
+         :repeat true}
+        {:mods [:ctrl]
+         :key :p
+         :action "slack:up"
          :repeat true}])
 
 (local browser-items
