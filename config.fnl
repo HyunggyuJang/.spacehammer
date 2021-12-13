@@ -237,7 +237,7 @@
         {:key :f
          :title "Firefox"
          :action (activator "Firefox")}
-        {:key :t
+        {:key :k
          :title "kitty"
          :action (activator "kitty")}
         {:key :s
@@ -417,10 +417,10 @@
                {:mods [:ctrl]
                 :key :t
                 :action "slack:thread"}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :p
                 :action "slack:prev-day"}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :n
                 :action "slack:next-day"}
                {:mods [:ctrl]
@@ -440,11 +440,11 @@
                 :action "slack:prev-history"
                 :repeat true}
                {:mods [:ctrl]
-                :key :j
+                :key :n
                 :action "slack:down"
                 :repeat true}
                {:mods [:ctrl]
-                :key :k
+                :key :p
                 :action "slack:up"
                 :repeat true}]})
 
