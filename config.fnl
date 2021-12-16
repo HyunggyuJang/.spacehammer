@@ -3,7 +3,7 @@
 (local windows (require :windows))
 (local emacs (require :emacs))
 (local slack (require :slack))
-;; (local hhtwm (require :hhtwm))
+(global hhtwm (require :hhtwm))
 ;; (local vim (require :vim))
 
 ;; Test REPL
@@ -450,6 +450,12 @@
         :hyper {:key :F20}
         :modules {:windows {:center-ratio "80:50"}}})
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Tiling
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(hhtwm.start)
+(hhtwm.setLayout "main-left")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Exports
