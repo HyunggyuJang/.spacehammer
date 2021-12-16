@@ -3,7 +3,8 @@
 (local windows (require :windows))
 (local emacs (require :emacs))
 (local slack (require :slack))
-(local vim (require :vim))
+;; (local vim (require :vim))
+;; (local space (require :hs._asm.undocumented.spaces))
 
 ;; Test REPL
 ;; (local repl (require :repl))
@@ -359,13 +360,14 @@
        {:key "Firefox"
         :keys browser-keys
         :items browser-items
-        :activate (fn [] (vim.disable))
-        :deactivate (fn [] (vim.enable))})
+        ;; :activate (fn [] (vim.disable))
+        ;; :deactivate (fn [] (vim.enable))
+        })
 
 (local emacs-config
        {:key "Emacs"
-        :activate (fn [] (vim.disable))
-        :deactivate (fn [] (vim.enable))
+        ;; :activate (fn [] (vim.disable))
+        ;; :deactivate (fn [] (vim.enable))
         :launch "emacs:maximize"
         :items []
         :keys []})
@@ -415,14 +417,6 @@
                {:mods [:alt]
                 :key :n
                 :action "slack:next-day"}
-               {:mods [:ctrl]
-                :key :e
-                :action "slack:scroll-up"
-                :repeat true}
-               {:mods [:ctrl]
-                :key :y
-                :action "slack:scroll-down"
-                :repeat true}
                {:mods [:ctrl]
                 :key :i
                 :action "slack:next-history"
