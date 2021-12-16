@@ -3,8 +3,8 @@
 (local windows (require :windows))
 (local emacs (require :emacs))
 (local slack (require :slack))
+;; (local hhtwm (require :hhtwm))
 ;; (local vim (require :vim))
-;; (local space (require :hs._asm.undocumented.spaces))
 
 ;; Test REPL
 ;; (local repl (require :repl))
