@@ -6,9 +6,8 @@
 (local hhtwms (require :hhtwms))
 ;; (local vim (require :vim))
 
-;; Test REPL
-(local repl (require :repl))
-(repl.run (repl.start))
+;; (local repl (require :repl))
+;; (repl.run (repl.start))
 
 (local {:concat concat
         :logf logf} (require :lib.functional))
