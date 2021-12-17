@@ -105,7 +105,7 @@
 ;; Windows
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(local window-jumps
+(local window-shortcuts
        [{:mods [:cmd :ctrl]
          :key :h
          :action "windows:jump-window-left"}
@@ -137,6 +137,22 @@
          :action "hhtwms:swap-window-below"}
         {:key :l
          :action "hhtwms:swap-window-right"}])
+
+(local window-throws
+       [{:key "123456"
+         :title "Throws"}
+        {:key :1
+         :action "hhtwms:throw-window1"}
+        {:key :2
+         :action "hhtwms:throw-window2"}
+        {:key :3
+         :action "hhtwms:throw-window3"}
+        {:key :4
+         :action "hhtwms:throw-window4"}
+        {:key :5
+         :action "hhtwms:throw-window5"}
+        {:key :6
+         :action "hhtwms:throw-window6"}])
 
 (local window-halves
        [{:key "hjkl"
@@ -223,6 +239,7 @@
          {:key :w
           :title "Last Window"
           :action "windows:jump-to-last-window"}]
+        window-throws
         window-halves
         window-increments
         window-resize
@@ -237,6 +254,9 @@
           :title "Undo"
           :action "windows:undo"
           :repeatable true}
+         {:key :t
+          :title "Tile"
+          :action "hhtwm.tile"}
          {:key   :s
           :title "Swaps"
           :items window-swaps}
@@ -336,7 +356,7 @@
         {:mods [:cmd :ctrl]
          :key :o
          :action "emacs:edit-with-emacs"}]
-        window-jumps))
+        window-shortcuts))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; App Specific Config
