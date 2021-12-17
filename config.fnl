@@ -109,20 +109,25 @@
 (local window-jumps
        [{:mods [:cmd :ctrl]
          :key :h
-         :action "windows:jump-window-left"
-         :repeatable true}
+         :action "windows:jump-window-left"}
         {:mods [:cmd :ctrl]
          :key :j
-         :action "windows:jump-window-above"
-         :repeatable true}
+         :action "windows:jump-window-above"}
         {:mods [:cmd :ctrl]
          :key :k
-         :action "windows:jump-window-below"
-         :repeatable true}
+         :action "windows:jump-window-below"}
         {:mods [:cmd :ctrl]
          :key :l
-         :action "windows:jump-window-right"
-         :repeatable true}])
+         :action "windows:jump-window-right"}
+        {:mods [:cmd :ctrl]
+         :key :return
+         :action "windows:maximize-window-frame"}
+        {:mods [:cmd :ctrl]
+         :key :u
+         :action "windows:undo"}
+        {:mods [:cmd :ctrl]
+         :key :6
+         :action "windows:jump-to-last-window"}])
 
 (local window-halves
        [{:key "hjkl"
@@ -213,10 +218,7 @@
         window-increments
         window-resize
         window-move-screens
-        [{:key :return
-          :title "Maximize"
-          :action "windows:maximize-window-frame"}
-         {:key :c
+        [{:key :c
           :title "Center"
           :action "windows:center-window-frame"}
          {:key :g
