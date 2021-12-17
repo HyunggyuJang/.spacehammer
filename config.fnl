@@ -3,12 +3,12 @@
 (local windows (require :windows))
 (local emacs (require :emacs))
 (local slack (require :slack))
-(global hhtwm (require :hhtwm))
+(local hhtwms (require :hhtwms))
 ;; (local vim (require :vim))
 
 ;; Test REPL
-;; (local repl (require :repl))
-;; (repl.run (repl.start))
+(local repl (require :repl))
+(repl.run (repl.start))
 
 (local {:concat concat
         :logf logf} (require :lib.functional))
@@ -129,6 +129,16 @@
          :key :6
          :action "windows:jump-to-last-window"}])
 
+(local window-swaps
+       [{:key :h
+         :action "hhtwms:swap-window-left"}
+        {:key :j
+         :action "hhtwms:swap-window-above"}
+        {:key :k
+         :action "hhtwms:swap-window-below"}
+        {:key :l
+         :action "hhtwms:swap-window-right"}])
+
 (local window-halves
        [{:key "hjkl"
          :title "Halves"}
@@ -227,7 +237,11 @@
          {:key :u
           :title "Undo"
           :action "windows:undo"
-          :repeatable true}]))
+          :repeatable true}
+         {:key   :s
+          :title "Swaps"
+          :items window-swaps}
+         ]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Apps Menu
@@ -452,13 +466,6 @@
         :apps  apps
         :hyper {:key :F20}
         :modules {:windows {:center-ratio "80:50"}}})
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Tiling
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(hhtwm.setLayout "main-left")
-(hhtwm.start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Exports
