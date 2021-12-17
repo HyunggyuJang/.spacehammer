@@ -226,7 +226,8 @@
           :action "windows:show-grid"}
          {:key :u
           :title "Undo"
-          :action "windows:undo"}]))
+          :action "windows:undo"
+          :repeatable true}]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Apps Menu
