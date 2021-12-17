@@ -8,7 +8,7 @@
 
 ;; Test REPL
 ;; (local repl (require :repl))
-;; (repl.run (repl.start {:port "9898"}))
+;; (repl.run (repl.start))
 
 (local {:concat concat
         :logf logf} (require :lib.functional))
