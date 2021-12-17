@@ -400,13 +400,13 @@
         ;; :deactivate (fn [] (vim.enable))
         })
 
-(local emacs-config
-       {:key "Emacs"
-        ;; :activate (fn [] (vim.disable))
-        ;; :deactivate (fn [] (vim.enable))
-        :launch "emacs:maximize"
-        :items []
-        :keys []})
+;; (local emacs-config
+;;        {:key "Emacs"
+;;         ;; :activate (fn [] (vim.disable))
+;;         ;; :deactivate (fn [] (vim.enable))
+;;         ;; :launch "emacs:maximize"
+;;         :items []
+;;         :keys []})
 
 ;; (local grammarly-config
 ;;        {:key "Grammarly"
@@ -472,7 +472,7 @@
 
 (local apps
        [firefox-config
-        emacs-config
+        ;; emacs-config
         hammerspoon-config
         slack-config])
 
