@@ -33,37 +33,37 @@
 ;; Spaces
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(fn throw-window
-  [index]
-  "
-  Throw window to space using hhtwm
-  "
-  (let [win (hs.window.focusedWindow)]
-    (hhtwm.throwToSpace win index)))
+;; (fn throw-window
+;;   [index]
+;;   "
+;;   Throw window to space using hhtwm
+;;   "
+;;   (let [win (hs.window.focusedWindow)]
+;;     (hhtwm.throwToSpace win index)))
 
-(fn throw-window1
-  []
-  (throw-window 1))
+;; (fn throw-window1
+;;   []
+;;   (throw-window 1))
 
-(fn throw-window2
-  []
-  (throw-window 2))
+;; (fn throw-window2
+;;   []
+;;   (throw-window 2))
 
-(fn throw-window3
-  []
-  (throw-window 3))
+;; (fn throw-window3
+;;   []
+;;   (throw-window 3))
 
-(fn throw-window4
-  []
-  (throw-window 4))
+;; (fn throw-window4
+;;   []
+;;   (throw-window 4))
 
-(fn throw-window5
-  []
-  (throw-window 5))
+;; (fn throw-window5
+;;   []
+;;   (throw-window 5))
 
-(fn throw-window6
-  []
-  (throw-window 6))
+;; (fn throw-window6
+;;   []
+;;   (throw-window 6))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Tiling
@@ -76,9 +76,10 @@
  : swap-window-below
  : swap-window-left
  : swap-window-right
- : throw-window1
- : throw-window2
- : throw-window3
- : throw-window4
- : throw-window5
- : throw-window6}
+ ;; : throw-window1
+ ;; : throw-window2
+ ;; : throw-window3
+ ;; : throw-window4
+ ;; : throw-window5
+ ;; : throw-window6
+ }
