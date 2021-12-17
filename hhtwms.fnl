@@ -69,10 +69,11 @@
 ;; Tiling
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(hhtwm.setLayout "main-left")
+(hhtwm.setLayout "main-right")
 (hhtwm.start)
 
-{: swap-window-above
+{: hhtwm
+ : swap-window-above
  : swap-window-below
  : swap-window-left
  : swap-window-right

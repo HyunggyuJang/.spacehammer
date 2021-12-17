@@ -191,26 +191,26 @@
          :action "windows:resize-inc-right"
          :repeatable true}])
 
-(local window-resize
-       [{:mods [:shift]
-         :key "hjkl"
-         :title "Resize"}
-        {:mods [:shift]
-         :key :h
-         :action "windows:resize-left"
-         :repeatable true}
-        {:mods [:shift]
-         :key :j
-         :action "windows:resize-down"
-         :repeatable true}
-        {:mods [:shift]
-         :key :k
-         :action "windows:resize-up"
-         :repeatable true}
-        {:mods [:shift]
-         :key :l
-         :action "windows:resize-right"
-         :repeatable true}])
+;; (local window-resize
+;;        [{:mods [:shift]
+;;          :key "hjkl"
+;;          :title "Resize"}
+;;         {:mods [:shift]
+;;          :key :h
+;;          :action "windows:resize-left"
+;;          :repeatable true}
+;;         {:mods [:shift]
+;;          :key :j
+;;          :action "windows:resize-down"
+;;          :repeatable true}
+;;         {:mods [:shift]
+;;          :key :k
+;;          :action "windows:resize-up"
+;;          :repeatable true}
+;;         {:mods [:shift]
+;;          :key :l
+;;          :action "windows:resize-right"
+;;          :repeatable true}])
 
 (local window-move-screens
        [{:key "n, p"
@@ -242,7 +242,7 @@
         ;; window-throws
         window-halves
         window-increments
-        window-resize
+        ;; window-resize
         window-move-screens
         [{:key :c
           :title "Center"
@@ -257,6 +257,19 @@
          {:key :t
           :title "Tile"
           :action "hhtwm:tile"}
+         {:key :e
+          :title "Revert layout"
+          :action "hhtwm:equalizeLayout"}
+         {:mods [:shift]
+          :key :h
+          :action (fn resize->left []
+                    (hhtwms.hhtwm.resizeLayout "thinner"))
+          :repeatable true}
+         {:mods [:shift]
+          :key :l
+          :action (fn resize->right []
+                    (hhtwms.hhtwm.resizeLayout "wider"))
+          :repeatable true}
          {:key :s
           :title "Swaps"
           :items window-swaps}
