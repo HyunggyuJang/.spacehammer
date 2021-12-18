@@ -4,10 +4,8 @@
 (local emacs (require :emacs))
 (local slack (require :slack))
 (local hhtwms (require :hhtwms))
+(local repl (require :repl))
 ;; (local vim (require :vim))
-
-;; (local repl (require :repl))
-;; (repl.run (repl.start))
 
 (local {:concat concat
         :logf logf} (require :lib.functional))
@@ -275,6 +273,31 @@
           :items window-swaps}
          ]))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; REPL
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; (repl.run (repl.start))
+
+(var replServer nil)
+(local repl-bindings
+       [{:key :i
+         :title "Initialize REPL"
+         :action (fn startREPL []
+                   (set replServer (repl.start)))}
+        {:key :p
+         :title "Pause REPL"
+         :action (fn stopREPL []
+                   (when replServer
+                     (repl.stop replServer)))}
+        {:key :r
+         :title "Run REPL"
+         :action (fn runREPL []
+                   (when (= replServer nil)
+                     (startREPL))
+                   (repl.run replServer))}])
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Apps Menu
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -356,7 +379,10 @@
          :items media-bindings}
         {:key   :x
          :title "Emacs"
-         :items emacs-bindings}])
+         :items emacs-bindings}
+        {:key   :r
+         :title "REPL"
+         :items repl-bindings}])
 
 (local common-keys
        (concat
