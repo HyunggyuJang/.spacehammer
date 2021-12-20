@@ -382,7 +382,10 @@
          :items emacs-bindings}
         {:key   :r
          :title "REPL"
-         :items repl-bindings}])
+         :items repl-bindings}
+        {:key   :s
+         :title "start hs server"
+         :action (fn [] (require :hs.ipc))}])
 
 (local common-keys
        (concat
