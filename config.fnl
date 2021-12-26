@@ -3,7 +3,7 @@
 (local windows (require :windows))
 (local emacs (require :emacs))
 (local slack (require :slack))
-(local hhtwms (require :hhtwms))
+(local tiling (require :tiling))
 (local repl (require :repl))
 ;; (local vim (require :vim))
 
@@ -128,29 +128,29 @@
 
 (local window-swaps
        [{:key :h
-         :action "hhtwms:swap-window-left"}
+         :action "tiling:swap-window-left"}
         {:key :j
-         :action "hhtwms:swap-window-above"}
+         :action "tiling:swap-window-above"}
         {:key :k
-         :action "hhtwms:swap-window-below"}
+         :action "tiling:swap-window-below"}
         {:key :l
-         :action "hhtwms:swap-window-right"}])
+         :action "tiling:swap-window-right"}])
 
 ;; (local window-throws
 ;;        [{:key "123456"
 ;;          :title "Throws"}
 ;;         {:key :1
-;;          :action "hhtwms:throw-window1"}
+;;          :action "tiling:throw-window1"}
 ;;         {:key :2
-;;          :action "hhtwms:throw-window2"}
+;;          :action "tiling:throw-window2"}
 ;;         {:key :3
-;;          :action "hhtwms:throw-window3"}
+;;          :action "tiling:throw-window3"}
 ;;         {:key :4
-;;          :action "hhtwms:throw-window4"}
+;;          :action "tiling:throw-window4"}
 ;;         {:key :5
-;;          :action "hhtwms:throw-window5"}
+;;          :action "tiling:throw-window5"}
 ;;         {:key :6
-;;          :action "hhtwms:throw-window6"}])
+;;          :action "tiling:throw-window6"}])
 
 (local window-halves
        [{:key "hjkl"
@@ -260,13 +260,11 @@
           :action "hhtwm:equalizeLayout"}
          {:mods [:shift]
           :key :h
-          :action (fn resize->left []
-                    (hhtwms.hhtwm.resizeLayout "thinner"))
+          :action "tiling:resize-layout-left"
           :repeatable true}
          {:mods [:shift]
           :key :l
-          :action (fn resize->right []
-                    (hhtwms.hhtwm.resizeLayout "wider"))
+          :action "tiling:resize-layout-right"
           :repeatable true}
          {:key :s
           :title "Swaps"
