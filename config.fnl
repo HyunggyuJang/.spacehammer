@@ -343,12 +343,6 @@
 
 (local emacs-bindings
        [return
-        {:key :c
-         :title "Capture"
-         :action (fn [] (emacs.capture))}
-        {:key :z
-         :title "Note"
-         :action (fn [] (emacs.note))}
         {:key :v
          :title "Split"
          :action "emacs:vertical-split-with-emacs"}
